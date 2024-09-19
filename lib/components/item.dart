@@ -7,6 +7,7 @@ class Item extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
+        Image.asset(number.image),
         Padding(
           padding: const EdgeInsets.only(left: 16),
           child: Column(
