@@ -8,7 +8,7 @@ void main() {
 class NumbersPage extends StatelessWidget {
   const NumbersPage({super.key});
   final Number one = const Number(
-      image: 'assets/images/family_members/family_daughter.png ',
+      image: 'assets/images/family_members/family_daughter.png',
       JpName: 'icho',
       enName: 'one');
 
@@ -16,25 +16,20 @@ class NumbersPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        backgroundColor: Colors.amber,
-        appBar: AppBar(
-          title: const Text('Numbers'),
-          backgroundColor: Colors.brown,
-        ),
-        body: Column(
-          children: [
-            Item(number: one),
-          ],
-        ),
-      ),
+          appBar: AppBar(
+            title: const Text('Numbers'),
+            backgroundColor: Colors.brown,
+          ),
+          body: ListView(
+            children: [
+              Item(number: one),
+              Item(number: one),
+              Item(number: one),
+              Item(number: one),
+              Item(number: one),
+              Item(number: one),
+            ],
+          )),
     );
   }
-}
-
-class Number {
-  final image;
-  final String JpName;
-  final String enName;
-  const Number(
-      {required this.image, required this.JpName, required this.enName});
 }
