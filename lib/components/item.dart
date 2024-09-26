@@ -1,53 +1,70 @@
+import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
+import 'package:toko/Screen/numbers_page.dart';
 
-class Item extends StatelessWidget {
-  const Item({super.key, required this.number});
-  final Number number;
+class ListItem extends StatelessWidget {
+  const ListItem(
+      {super.key,
+      this.sound = '',
+      required this.number,
+      required this.color,
+      required this.itemType});
+  final Item number;
+  final String sound;
+  final Color color;
+  final String itemType;
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        Image.asset(number.image),
-        Padding(
-          padding: const EdgeInsets.only(left: 16),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text(
-                number.JpName,
-                style: const TextStyle(
-                  color: Colors.white,
-                  fontSize: 18,
+    return Container(
+      color: color,
+      height: 100,
+      child: Row(
+        children: [
+          Container(
+              color: const Color(0xffFFF6DC), child: Image.asset(number.image)),
+          Padding(
+            padding: const EdgeInsets.only(left: 16),
+            child: Column(
+              children: [
+                Text(
+                  number.JpName,
+                  style: const TextStyle(
+                    color: Colors.white,
+                    fontSize: 18,
+                  ),
                 ),
-              ),
-              Text(
-                number.enName,
-                style: const TextStyle(
-                  color: Colors.white,
-                  fontSize: 18,
+                Text(
+                  number.enName,
+                  style: const TextStyle(
+                    color: Colors.white,
+                    fontSize: 18,
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
-        ),
-        const Spacer(
-          flex: 1,
-        ),
-        const Icon(
-          Icons.play_arrow,
-          color: Colors.white,
-          size: 28,
-        ),
-      ],
+          const Spacer(
+            flex: 1,
+          ),
+          IconButton(
+              onPressed: () async {
+                try {
+                  AudioPlayer player = AudioPlayer();
+                  await player.setSource(
+                      AssetSource('sounds/family_members/daughter.wav'));
+                  await player
+                      .play(AssetSource('sounds/family_members/daughter.wav'));
+                } catch (ex) {
+                  print(ex);
+                }
+              },
+              icon: const Icon(
+                Icons.play_arrow,
+                color: Colors.white,
+                size: 30,
+              ))
+        ],
+      ),
     );
   }
-}
-
-class Number {
-  final image;
-  final String JpName;
-  final String enName;
-  const Number(
-      {required this.image, required this.JpName, required this.enName});
 }

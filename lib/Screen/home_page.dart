@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:toko/Screen/family_members_page.dart';
 import 'package:toko/Screen/numbers_page.dart';
 import 'package:toko/components/category_item.dart';
 
@@ -35,7 +36,7 @@ class _HomePageState extends State<HomePage> {
           color: Colors.green,
           onTap: () {
             Navigator.push(context, MaterialPageRoute(builder: (context) {
-              return const NumbersPage();
+              return const FamilyMembersPage();
             }));
           },
         ),
@@ -44,7 +45,7 @@ class _HomePageState extends State<HomePage> {
           color: Colors.orange,
           onTap: () {
             Navigator.push(context, MaterialPageRoute(builder: (context) {
-              return const NumbersPage();
+              return const FamilyMembersPage();
             }));
           },
         ),

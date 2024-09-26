@@ -7,6 +7,7 @@ environment:
   sdk: ^3.5.0
 
 dependencies:
+  audioplayers: ^6.1.0
   flutter:
     sdk: flutter
 
@@ -17,7 +18,10 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
-assets:
-  - assets/images/numbers/
-  - assets/images/family_members/
-  - assets/images/colors/
+  assets:
+    - assets/images/numbers/
+    - assets/images/family_members/
+    - assets/images/colors/
+    - assets/sounds/colors/
+    - assets/sounds/numbers/
+    - assets/sounds/family_members/
